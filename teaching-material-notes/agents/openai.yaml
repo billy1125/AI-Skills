@@ -1,0 +1,3 @@
+interface:
+  display_name: "Teaching Material Notes"
+  short_description: "Summarize uploaded teaching materials and web pages into structured notes."

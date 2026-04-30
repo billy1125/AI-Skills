@@ -1,0 +1,5 @@
+interface:
+  display_name: Practice Question Generator
+  short_description: Generate practice questions from uploaded teaching materials or webpage links.
+  icon: question_mark
+  brand_color: '#4F46E5'
