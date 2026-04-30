@@ -1,6 +1,6 @@
 ---
 name: literature-review-organizer
-description: organize and analyze multiple academic papers from uploaded pdf files or paper links. use when chatgpt is asked to整理文獻、比較多篇論文、萃取核心論點、建立文獻比較表、整理理論脈絡、辨識研究缺口、提出未來研究方向，或生成可直接用於文獻回顧與研究提案的繁體中文輸出。 works best for thesis preparation, literature reviews, research proposals, topic scans, and cross-paper synthesis from journal articles, conference papers, doi pages, publisher pages, and direct pdf links.
+description: 整理和分析多篇學術論文，支援上傳的PDF文件或論文連結。當使用者要求使用ChatGPT整理文獻、比較多篇論文、萃取核心論點、建立文獻比較表、整理理論脈絡、辨識研究缺口、提出未來研究方向，或生成可直接用於文獻回顧與研究提案的繁體中文輸出。它最適用於論文準備、文獻綜述、研究計劃、主題掃描以及跨論文綜合分析，這些論文來自期刊文章、會議論文、DOI頁面、出版社頁面和直接PDF連結。
 ---
 
 # 文獻整理與研究綜整

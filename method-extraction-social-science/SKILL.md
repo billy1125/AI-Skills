@@ -1,6 +1,6 @@
 ---
 name: method-extraction-social-science
-description: specialized extraction and structured analysis of empirical research methods in social science, management, human factors, and related fields. use when the user wants to identify how a paper conducted its research design, measurement, data collection, and statistical analysis, especially for survey, experiment, quasi-experiment, panel, multilevel, archival, or mixed-method studies. produce comparison-ready structured outputs in traditional chinese with preserved english method terms, plus short method interpretation and evidence-based quality assessment.
+description: 針對社會科學、管理學、人因工程及相關領域的實證研究方法，提供專業的提取與結構化分析。使用者可利用此工具了解論文的研究設計、測量、資料收集和統計分析方法，特別適用於調查、實驗、準實驗、面板研究、多層研究、檔案研究或混合方法研究。產生結構化輸出，語言為繁體中文，保留英文方法術語，並提供簡潔的方法解釋和基於證據的品質評估，方便使用者進行比較。
 ---
 
 # 任務定位
@@ -35,7 +35,13 @@ description: specialized extraction and structured analysis of empirical researc
 - 混合方法研究（mixed methods）
 - 質性編碼搭配量化檢驗之研究
 
-不適用於以 AI 模型架構、模型訓練、benchmark、演算法設計為主的論文。此類論文應由另一個專門的 AI-method skill 處理。
+# 不適用範圍
+- 純質性研究（pure qualitative research）
+- 理論建構或概念性文章（theoretical or conceptual papers without empirical methods
+- 文獻回顧（literature reviews without method extraction focus）
+- 方法論文章（methodological papers that do not report empirical research methods）
+- 非學術研究報告（non-academic research reports or white papers）
+- 其他非實證研究類型（other non-empirical research types）
 
 # 核心原則
 
@@ -78,7 +84,15 @@ description: specialized extraction and structured analysis of empirical researc
 
 # 執行流程
 
-## 第一步：辨識方法類型（method family）
+## 1. 取得檔案
+檔案來源可由：
+- 使用者上傳 PDF
+- 使用者已指定本地資料夾
+- DOI、arXiv ID、PubMed ID 等識別碼以供系統自動下載
+- 直接提供論文網址（需可自動抓取）
+- 若已經能連接Google Drive或其他雲端存儲，詢問使用者檔案夾名稱，直接從指定資料夾讀取
+
+## 2.辨識方法類型（method family）
 先判斷論文主要屬於哪一類：
 - survey
 - longitudinal survey
@@ -92,7 +106,7 @@ description: specialized extraction and structured analysis of empirical researc
 
 若同時包含多種方法類型，請先標示主要設計，再補充次要元素。
 
-## 第二步：抽取通用方法架構
+## 3. 抽取通用方法架構
 所有論文都至少要抽取以下欄位：
 
 ### A. 論文基本資訊
@@ -162,7 +176,7 @@ description: specialized extraction and structured analysis of empirical researc
 - extractor inference
 - overall confidence
 
-## 第三步：依研究類型補充特定欄位
+## 4. 依研究類型補充特定欄位
 
 ### 若為問卷研究（survey）
 另外補充：
@@ -233,7 +247,7 @@ description: specialized extraction and structured analysis of empirical researc
 
 不要一開始就用長篇散文摘要。
 
-# 輸出格式要求
+# 輸出內容格式要求
 
 請優先依 `references/output-schema-template.md` 的模板輸出。
 
@@ -311,6 +325,10 @@ description: specialized extraction and structured analysis of empirical researc
 - 模糊不清的細節
 - 僅能低信心推定的內容
 
+# 輸出檔案格式要求
+
+輸出檔案格式限定為Markdown（.md），以確保跨平台兼容性與易讀性。
+
 # 多研究（multiple studies）處理規則
 
 若論文包含 Study 1、Study 2、Study 3 等多個子研究：
@@ -336,3 +354,8 @@ description: specialized extraction and structured analysis of empirical researc
 1. 明確理解該論文如何進行資料分析
 2. 直接與其他論文進行方法層次比較
 3. 判斷該論文的方法報告是否完整且具可解釋性
+
+# 檔案處理
+以上工作完成後，若已處理論文是在本地資料夾中，並且若有權限命名與移動檔案，先請求使用者同意，再將論文檔案移動在同一資料夾中，檔案夾名稱為`Readed_Papers`，並且按照以下原則處理：
+- 命名格式參照 `paper-title_method-extraction.md`。
+- 不符合命名格式的檔案請移動到 `Unprocessed_Papers` 資料夾中，命名格式參照 `paper-title_method-extraction.md`，並附上簡短說明（例如：無法辨識論文標題、方法類型不明確等）。
